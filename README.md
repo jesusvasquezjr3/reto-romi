@@ -30,18 +30,24 @@ reto-romi/
 
 ## Instalación y Uso
 
-### 0. Clona el repositorio desde tu terminal
+### 1. Clona el repositorio desde tu terminal
 
 ```bash
 git clone https://github.com/jesusvasquezjr3/reto-romi
 ```
 
-### 1. Instala las dependencias
+### 2. Crea y activa tu entorno virtual
+```bash
+python -m venv reto-romi
+.\reto-romi\Scripts\activate
+```
+
+### 3. Instala las dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Ejecuta la aplicación
+### 4. Ejecuta la aplicación
 ```bash
 python app.py
 ```
