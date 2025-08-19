@@ -47,7 +47,10 @@ python app.py
 ```
 
 ### 3. Accede a la aplicación
-Abre tu navegador y ve a: `http://localhost:5000`
+Abre tu navegador y ve a: `http://localhost:5000` o bien en tu terminal deberá salirte el URL.
+
+![Ejemplo en Terminal](Screenshot-terminal.png)
+***Figura 2.** Ejemplo en terminal*
 
 ## Características
 
