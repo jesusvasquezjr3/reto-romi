@@ -1,5 +1,3 @@
-// Funcionalidad JavaScript para mejorar la experiencia del usuario
-
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const inputs = document.querySelectorAll('input');
