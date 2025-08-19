@@ -94,6 +94,64 @@ Esta combinación de colores la obtuve con [https://colorhunt.co/palette/0d11646
 - Frontend: Edita `templates/index.html`
 - JavaScript: Edita `static/js/script.js`
 
+#### Esquema de Funcionamiento
+```mermaid
+flowchart TD
+    A[Usuario accede a localhost:5000] --> B[Flask carga index.html]
+    B --> C[Se renderiza formulario con CSS/JS]
+    C --> D[Usuario completa formulario]
+    D --> E{Validación Frontend JS}
+    
+    E -->|Campos vacíos| F[Mostrar error JS]
+    F --> D
+    E -->|Email inválido| F
+    E -->|Contraseña < 6 chars| F
+    
+    E -->|Validación OK| G[Enviar POST a /registro]
+    G --> H[Flask recibe datos del formulario]
+    H --> I{Validación Backend Python}
+    
+    I -->|Campos vacíos| J[Flash message: Error]
+    I -->|Contraseña < 6| J
+    I -->|Email ya existe| K[Verificar en CSV]
+    K -->|Usuario existe| J
+    
+    I -->|Validación OK| L[Hash de contraseña SHA-256]
+    L --> M[Guardar en usuarios.csv]
+    M --> N{¿Guardado exitoso?}
+    
+    N -->|Error| O[Flash message: Error al guardar]
+    N -->|Éxito| P[Flash message: Usuario registrado]
+    
+    J --> Q[Redirect a página principal]
+    O --> Q
+    P --> Q
+    Q --> R[Mostrar mensaje en pantalla]
+    R --> S[Auto-ocultar mensaje después 5s]
+    S --> T[Formulario listo para nuevo registro]
+    T --> D
+    
+    %% Inicialización
+    U[Inicio de aplicación] --> V{¿Existe usuarios.csv?}
+    V -->|No| W[Crear CSV con headers]
+    V -->|Sí| X[Continuar]
+    W --> X
+    X --> A
+    
+    %% Estilos
+    classDef frontend fill:#F78D60,stroke:#EA2264,stroke-width:2px,color:#fff
+    classDef backend fill:#640D5F,stroke:#0D1164,stroke-width:2px,color:#fff
+    classDef validation fill:#EA2264,stroke:#640D5F,stroke-width:2px,color:#fff
+    classDef storage fill:#0D1164,stroke:#640D5F,stroke-width:2px,color:#fff
+    classDef message fill:#f9f9f9,stroke:#666,stroke-width:2px
+    
+    class A,B,C,D,F,Q,R,S,T frontend
+    class G,H,L,U,V,W,X backend
+    class E,I,K,N validation
+    class M storage
+    class J,O,P message
+```
+
 ## Archivo CSV
 
 Los usuarios se guardan en `usuarios.csv` con las siguientes columnas:
