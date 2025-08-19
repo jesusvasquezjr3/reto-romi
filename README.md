@@ -157,4 +157,4 @@ flowchart TD
 Los usuarios se guardan en `usuarios.csv` con las siguientes columnas:
 - `nombre`: Nombre completo del usuario
 - `correo`: Correo electrónico (único)
-- `password_hash`: Contraseña hasheada con SHA-256
+- `password_hash`: Contraseña hasheada
