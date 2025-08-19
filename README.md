@@ -6,7 +6,7 @@
 Construye una pequeña aplicación web o script en Python, HTML o Node.js (a tu elección) que registre usuarios (nombre, correo y contraseña) y los guarde en un archivo o base de datos simple (puede ser SQLite, JSON o CSV).
 ```
 
-Esta es una aplicación web modular desarrollada en Python con Flask para registrar usuarios y guardarlos en un archivo CSV.
+Esta es una aplicación web desarrollada en Python con Flask para registrar usuarios y guardarlos en un archivo CSV.
 
 ![Captura de Pantalla](Screenshot.png)
 ***Figura 1.** Pantalla principal*
@@ -39,6 +39,8 @@ git clone https://github.com/jesusvasquezjr3/reto-romi
 ### 2. Crea y activa tu entorno virtual
 ```bash
 python -m venv reto-romi
+```
+```bash
 .\reto-romi\Scripts\activate
 ```
 
@@ -52,8 +54,8 @@ pip install -r requirements.txt
 python app.py
 ```
 
-### 3. Accede a la aplicación
-Abre tu navegador y ve a: `http://localhost:5000` o bien en tu terminal deberá salirte el URL.
+### 5. Accede a la aplicación
+Abre tu navegador y ve a: `http://localhost:5000` o bien en tu terminal deberá salirte el URL:
 
 ![Ejemplo en Terminal](Screenshot-terminal.png)
 ***Figura 2.** Ejemplo en terminal*
